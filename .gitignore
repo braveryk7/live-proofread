@@ -1,0 +1,9 @@
+node_modules
+dist/js
+#-------------------------------
+#   Created by OS
+#-------------------------------
+# Windows
+Thumbs.db
+# Mac
+.DS_Store

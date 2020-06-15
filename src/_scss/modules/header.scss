@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    color: rgb(255, 255, 255);
+    background-color: rgb(95, 158, 160);
+
+    &__title {
+        padding-left: 15px;
+    }
+
+    &__sub-title {
+        padding-left: 20px;
+    }
+}

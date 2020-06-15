@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVE Proofread | 文章チェック・校正ツール</title>
+</head>
+<body>
+    <header id="header" class="header">
+        <h1 class="header__title">LIVE Proofread（β）</h1>
+        <p class="header__sub-title">Webライター/編集者用の文章チェック・校正ツール</p>
+    </header>
+    <article id="article" class="article">
+        <main class="main-area">
+            <section id="input-area" class="input-area">
+                <h2>チェック対象文章</h2>
+                <form id="input_word" name="input_word">
+                    <textarea class="input-area__input-form" name="input_word_result" id="input_word_result" cols="50" rows="30" maxlength="50000" placeholder="ここにチェック対象の文章をペースト">
+テスト用文字列。
+これはリリース時に削除します。
+読点の、数が、多いと、指摘されます。改行してなくてもOK。こんな、感じで、指摘、できるよ。未改行ぶっ続けマンでもいけるんだなこれが！
+
+----これから実装-----
+数字の１と2のように全角半角統一：すぐやる
+頂くや出来るのような低可読性漢字の指摘。
+同一語尾が続いた場合の指摘（ですます・だである以外の派生もex:ですよね？等）
+
+----実装するかも？----
+漢字の使用率測定→オンにした場合ヒートマップにして可読性を視認化しても良いかも？
+ら抜き言葉等の指摘→そもそものサンプル用意すんのだるくねーか
+
+----もしやれたら----
+バックエンドAPIと連携して機械学習を用いたAI指摘（めんどくさい）</textarea>
+                </form>
+                <div>
+                    <p>文字数カウント：<span id="word_count">0</span>文字（最大5万文字まで）</p>
+                </div>
+            </section>
+            <section id="view-area" class="view-area">
+                <h2>校正結果</h2>
+                <div id="view_word" class="view-word" name="view_word">
+                    <p>---使い方---</p>
+                    <p>左のテキスト入力エリアにチェック対象の文章を入力すると、オプションに応じて自動で校正結果が表示されます。</p>
+                    <p>オプションはオプション設定欄からご希望の設定に変更可能です。</p>
+                </div>
+                <div class="copy-area">
+                    <form id="input_code" name="input_code" class="copy-area__input-code">
+                        <label><input type="radio" name="line_feed_code" value="\n" checked>プレーンテキスト（デフォルト）</label>
+                        <label><input type="radio" name="line_feed_code" value="br">&lt;br /&gt;タグを付与</label>
+                        <label><input type="radio" name="line_feed_code" value="p">&lt;p&gt;タグを付与</label>
+                    </form>
+                    <div id="copy" name="copy" class="copy-area__copy-form">
+                        <button type="button" id="copy-btn" class="copy-area__copy-form--btn">コピーする</button>
+                    </div>
+                </div>
+            </section>
+            <section id="options-area" class="options-area">
+                <h2>オプション設定</h2>
+                <div class="reading-point">
+                    <form name="reading_point_form">
+                        <label><input type="checkbox" class="reading-point__check" id="reading_point_checkbox" checked>読点（、）の数を<input type="number" class="reading-point__number" id="reading_point_number" min="0" max="99" value="2">個まで許容する</label>
+                    </form>
+                    <form name="character_width_form">
+                        <label><input type="radio" name="character_width" id="character_width_none" value="0" checked>全半角の指定をしない</label>
+                        <label><input type="radio" name="character_width" id="character_width_half" value="1">英数字を半角で統一する</label>
+                        <label><input type="radio" name="character_width" id="character_width_full" value="2">英数字を全角で統一する</label>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </article>
+    <footer id="footer" class="footer">
+        <small>Copyright &copy; 2020 <a href="https://www.braveryk7.com/" target="_blank">L'7 Records</a>.</small>
+    </footer>
+    <script src="js/bundle.js"></script>
+</body>
+</html>
