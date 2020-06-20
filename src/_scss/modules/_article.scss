@@ -1,24 +1,14 @@
-.article {
+@import '../mixin/layout.scss';
+
+.main-area {
+    grid-area: center;
+    @include mainLayout;
     background-color: rgb(174, 212, 203);
 }
 
-.main-area {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 20px;
-    width: 95%;
-    margin: 0 auto;
-}
-
 .input-area {
-    display: flex;
-    flex-direction: column;
-    width: 45%;
-    //max-height: 600px;
+    grid-area: input;
     background-color: rgb(240, 240, 240);
-    padding: 15px;
-    margin-right: 15px;
 
     &__input-form {
         resize: none;
@@ -31,35 +21,10 @@
 }
 
 .view-area {
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 45%;
+    grid-area: view;
+    // width: 45%;
     //max-height: 600px;
     background-color: rgb(240, 240, 240);
-    padding: 15px;
-    margin-left: 15px;
-}
-
-.copy-area {
-    display: flex;
-
-    &__input-code {
-        display: flex;
-        flex-direction: column;
-        margin-top: 10px;
-    }
-
-    &__copy-form {
-        display: flex;
-        align-items: center;
-        margin: 0 auto;
-
-        &--btn {
-            padding: 15px 80px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-    }
 }
 
 .view-word {
@@ -80,9 +45,27 @@
     }
 }
 
+.copy-area {
+
+    &__input-code {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    &__copy-form {
+        align-items: center;
+        margin: 0 auto;
+
+        &--btn {
+            padding: 15px 80px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
 .options-area {
-    flex-wrap: wrap;
-    width: 100%;
+    grid-area: options;
     background-color: rgb(240, 240, 240);
     padding: 15px;
     margin-top: 20px;
