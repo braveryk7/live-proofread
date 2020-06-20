@@ -17,7 +17,7 @@ export function copyToClipboard(e) {
         } else if(lineFeedCodeChecked === 'br') {
             copyArray.push(text[i] + '<br />\n');
         } else {
-            copyArray.push('<' + lineFeedCodeChecked + '>' + text[i] + '<' + lineFeedCodeChecked + '>\n')
+            copyArray.push('<' + lineFeedCodeChecked + '>' + text[i] + '</' + lineFeedCodeChecked + '>\n')
         }
     }
     navigator.clipboard.writeText(copyArray.join('').slice(0, -1));
