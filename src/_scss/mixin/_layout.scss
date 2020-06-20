@@ -1,0 +1,15 @@
+@mixin containerLayout {
+    display: grid;
+    grid-template:
+        "header"
+        "center" 1fr
+        "footer" 30px;
+}
+
+@mixin mainLayout {
+    display: grid;
+    grid-template:
+        "input   center  view   "
+        "options options options"
+        / minmax(350px, 1fr) 0px minmax(350px, 1fr);
+}
