@@ -13,11 +13,11 @@ export function copyToClipboard(e) {
     const copyArray = [];
     for (let i = 0; i < text.length; i++) {
         if(lineFeedCodeChecked !== 'br' && lineFeedCodeChecked !== 'p' ) {
-            copyArray.push(text[i] + '\n');
+            copyArray.push(`${text[i]}\n`);
         } else if(lineFeedCodeChecked === 'br') {
-            copyArray.push(text[i] + '<br />\n');
+            copyArray.push(`${text[i]}<br />\n`);
         } else {
-            copyArray.push('<' + lineFeedCodeChecked + '>' + text[i] + '</' + lineFeedCodeChecked + '>\n')
+            copyArray.push(`<${lineFeedCodeChecked}>${text[i]}</${lineFeedCodeChecked}>\n`)
         }
     }
     navigator.clipboard.writeText(copyArray.join('').slice(0, -1));
