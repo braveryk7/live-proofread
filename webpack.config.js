@@ -18,6 +18,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, 'dist'),
         host: '0.0.0.0',
         port: 16000,
+        https: true,
         inline: true,
         watchContentBase: true,
         open: 'Chrome',
