@@ -20,7 +20,7 @@ export function characterWidthCheck(str) {
         str = str.split(checkReg);
         for(let i = 0; i < str.length; i++) {
             if(checkReg.test(str[i])) {
-                str[i] = '<span class="view-word--width" title="' + regMessage + 'に直して下さい">' + str[i] + '</span>';
+                str[i] = `<span class="view-word--width" title="${regMessage}に直して下さい">${str[i]}</span>`;
             }
         }
         str = str.join('');
