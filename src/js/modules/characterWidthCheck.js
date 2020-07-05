@@ -1,6 +1,5 @@
 export function characterWidthCheck(str) {
-    let checkReg = '';
-    let regMessage = '';
+    let checkReg, regMessage, returnStr = '';
 
     const characterWidthChecked = Array.from(document.getElementsByName('character_width')).find((check) => {
         return check.checked;
@@ -16,15 +15,17 @@ export function characterWidthCheck(str) {
         regMessage = '全角';
     }
 
-    if(checkedValue !== '0' && Array.isArray(str) === false && checkReg.test(str)) {
-        str = str.split(checkReg);
-        for(let i = 0; i < str.length; i++) {
-            if(checkReg.test(str[i])) {
-                str[i] = `<span class="view-word--width" title="${regMessage}に直して下さい">${str[i]}</span>`;
+    if (checkedValue !== '0' && checkReg.test(str)) {
+        const strSplit = str.split(checkReg);
+        let strings = strSplit.map((strProcessing) => {
+            if (checkReg.test(strProcessing)) {
+                strProcessing = `<span class="view-word--width" title="${regMessage}に直して下さい">${strProcessing}</span>`;
             }
-        }
-        str = str.join('');
+            return strProcessing;
+        });
+        returnStr = strings.join('');
+    } else {
+        returnStr = str;
     }
-
-    return str;
+    return returnStr;
 }
