@@ -2,7 +2,7 @@ export function characterWidthCheck(str) {
     let checkReg = '';
     let regMessage = '';
 
-    const characterWidthChecked = Array.from(document.getElementsByName('character_width')).find(function(check) {
+    const characterWidthChecked = Array.from(document.getElementsByName('character_width')).find((check) => {
         return check.checked;
     });
     const checkedValue = characterWidthChecked.value;
