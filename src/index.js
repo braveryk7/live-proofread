@@ -33,10 +33,12 @@ document.getElementById('copy-btn').addEventListener('click', {
 document.getElementById('reading_point_checkbox').addEventListener('input', () => {
     document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
     document.getElementById('word_count').textContent = inputWordResult.value.length;
+    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
 });
 document.getElementById('reading_point_number').addEventListener('input', () => {
     document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
     document.getElementById('word_count').textContent = inputWordResult.value.length;
+    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
 });
 
 //読点の処理
@@ -51,18 +53,22 @@ document.getElementById('reading_point_checkbox').addEventListener('input', {
 document.getElementById('character_width_none').addEventListener('click', () => {
     document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
     document.getElementById('word_count').textContent = inputWordResult.value.length;
+    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
 });
 document.getElementById('character_width_half').addEventListener('click', () => {
     document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
     document.getElementById('word_count').textContent = inputWordResult.value.length;
+    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
 });
 document.getElementById('character_width_full').addEventListener('click', () => {
     document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
     document.getElementById('word_count').textContent = inputWordResult.value.length;
+    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
 });
 
 // ヒートマップのイベントハンドラ
 document.getElementById('heatmap').addEventListener('click', () => {
     document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
     document.getElementById('word_count').textContent = inputWordResult.value.length;
+    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
 });
