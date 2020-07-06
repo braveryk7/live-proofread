@@ -10,48 +10,27 @@ export function inputWord(inputWordResult) {
         ・一行に2つ以上句点がある場合は句点で区切って配列に格納
         ex)Array['str', 'str', Array['str', 'str'], 'str']
     */
-    const inputWordResultLines = inputWordResult.value.replace(/\r\n|\r/g, '\n').split('\n');    
-    let inputWordResultLine = [];
+    const inputWordResultLines = inputWordResult.value.replace(/\r\n|\r/g, '\n').split('\n'); 
     const lineEnd = /([。！？）!?)])/
 
-    for(let i = 0; i < inputWordResultLines.length; i++) {
-        let multiFlag = 0;
-        if(counter(inputWordResultLines[i], '。') >= 2) {
-            const htmlReplace = h(inputWordResultLines[i]).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
-            inputWordResultLine.push(htmlReplace.split(lineEnd));
-
-            if(inputWordResultLine[inputWordResultLine.length - 1].slice(-1) !== lineEnd); {
-                multiFlag = 1;
-            }
-            for(let i2 = 0; i2 < inputWordResultLine[i].length; i2++) {
-                if(multiFlag === 0 || (multiFlag === 1 && i2 < inputWordResultLine[i].length - 1)) {
-                    const inputWordCWC = characterWidthCheck(inputWordResultLine[i][i2]);
-                    inputWordResultLine[i][i2] = inputWordCWC;
-                } else if(multiFlag === 1 && i2 !== inputWordResultLine[i].length - 1) {
-                    const inputWordCWC = characterWidthCheck(inputWordResultLine[i][i2]);
-                    inputWordResultLine[i][i2] = inputWordCWC;
-                }
-            }
+    const disassembly = inputWordResultLines.map((line) => {
+        if (counter(line, '。') >= 2) {
+            const htmlReplace = h(line).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+            const doubleLines = htmlReplace.split(lineEnd);
+            return doubleLines.map((doubleLine) => characterWidthCheck(doubleLine));
         } else {
-            const htmlReplace = h(inputWordResultLines[i].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, ''));
-            const inputWordCWC = characterWidthCheck(htmlReplace);
-            inputWordResultLine.push(inputWordCWC);
+            const htmlReplace = h(line.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, ''));
+            return characterWidthCheck(htmlReplace);
         }
-        multiFlag = 0;
-    }
+    });
 
-    let readingPointArray = '';
     // 読点の処理
-    if(document.getElementById('reading_point_checkbox').checked === true) {
-        readingPointArray = readingPoint(inputWordResultLine);
-    }
+    const readingPointCheck = document.getElementById('reading_point_checkbox').checked === true;
+    let readingPointArray = '';
+    readingPointCheck ? readingPointArray = readingPoint(disassembly) : readingPointArray = disassembly;
 
-    for(let i = 0; i < readingPointArray.length; i++) {
-        if(Array.isArray(readingPointArray[i])) {
-            readingPointArray[i] = readingPointArray[i].join('');
-        }
-    }
-    
+    //多次元配列の結合
+    let returnArray = readingPointArray.map((line) => Array.isArray(line) ? line.join('') : line);
 
-    return readingPointArray;
+    return returnArray;
 }
