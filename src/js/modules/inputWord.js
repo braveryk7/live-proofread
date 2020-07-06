@@ -20,7 +20,8 @@ export function inputWord(inputWordResult) {
             const doubleLines = htmlReplace.split(lineEnd);
             return doubleLines.map((doubleLine) => characterWidthCheck(doubleLine));
         } else {
-            const htmlReplace = h(line.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, ''));
+            const htmlReplace = h(line).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '');
+            console.log(htmlReplace)
             return characterWidthCheck(htmlReplace);
         }
     });
