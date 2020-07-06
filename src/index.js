@@ -2,6 +2,7 @@ import './_scss/style.scss';
 import { inputWord } from './js/modules/inputWord.js';
 import { copyToClipboard } from './js/modules/copyToClipboard.js';
 import { readingPointCheck } from './js/modules/readingPointCheck.js';
+import { kanjiRate } from './js/modules/kanjiRate.js';
 
 const inputWordResult = document.forms.input_word.input_word_result;
 const readingPointCheckboxStatus = document.forms.reading_point_form.reading_point_checkbox;
@@ -11,6 +12,7 @@ const readingPointNumberResult = document.forms.reading_point_form.reading_point
     inputWordResult.addEventListener('input', () => {
         document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
         document.getElementById('word_count').textContent = inputWordResult.value.length;
+        document.getElementById('kanji_Rate').textContent = kanjiRate(inputWordResult);
     }, false);
 // }
 // inputWordTry();
