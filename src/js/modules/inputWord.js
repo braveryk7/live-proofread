@@ -21,7 +21,6 @@ export function inputWord(inputWordResult) {
             return doubleLines.map((doubleLine) => characterWidthCheck(doubleLine));
         } else {
             const htmlReplace = h(line).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '');
-            console.log(htmlReplace)
             return characterWidthCheck(htmlReplace);
         }
     });
