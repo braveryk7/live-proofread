@@ -12,7 +12,7 @@ const readingPointNumberResult = document.forms.reading_point_form.reading_point
     inputWordResult.addEventListener('input', () => {
         document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
         document.getElementById('word_count').textContent = inputWordResult.value.length;
-        document.getElementById('kanji_Rate').textContent = kanjiRate(inputWordResult);
+        document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
     }, false);
 // }
 // inputWordTry();
