@@ -58,3 +58,9 @@ document.getElementById('character_width_full').addEventListener('click', () => 
     document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
     document.getElementById('word_count').textContent = inputWordResult.value.length;
 });
+
+// ヒートマップのイベントハンドラ
+document.getElementById('heatmap').addEventListener('click', () => {
+    document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
+    document.getElementById('word_count').textContent = inputWordResult.value.length;
+});
