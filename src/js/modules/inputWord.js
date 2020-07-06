@@ -40,14 +40,18 @@ export function inputWord(inputWordResult) {
         multiFlag = 0;
     }
 
+    let readingPointArray = '';
     // 読点の処理
-    readingPoint(inputWordResultLine);
-
-    for(let i = 0; i < inputWordResultLine.length; i++) {
-        if(Array.isArray(inputWordResultLine[i])) {
-            inputWordResultLine[i] = inputWordResultLine[i].join('');
-        }
+    if(document.getElementById('reading_point_checkbox').checked === true) {
+        readingPointArray = readingPoint(inputWordResultLine);
     }
 
-    return inputWordResultLine;
+    for(let i = 0; i < readingPointArray.length; i++) {
+        if(Array.isArray(readingPointArray[i])) {
+            readingPointArray[i] = readingPointArray[i].join('');
+        }
+    }
+    
+
+    return readingPointArray;
 }
