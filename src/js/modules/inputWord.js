@@ -2,6 +2,7 @@ import { h } from './h.js';
 import { counter } from './counter.js';
 import { characterWidthCheck } from './characterWidthCheck.js';
 import { readingPoint } from './readingPoint.js';
+import { heatmap } from './heatmap.js';
 
 export function inputWord(inputWordResult) {
     /*
@@ -30,7 +31,13 @@ export function inputWord(inputWordResult) {
     readingPointCheck ? readingPointArray = readingPoint(disassembly) : readingPointArray = disassembly;
 
     //多次元配列の結合
-    let returnArray = readingPointArray.map((line) => Array.isArray(line) ? line.join('') : line);
+    let joinArray = readingPointArray.map((line) => Array.isArray(line) ? line.join('') : line);
 
+    // ヒートマップ
+    const heatmapCheck = document.getElementById('heatmap').checked === true;
+    let heatmapArray = '';
+    heatmapCheck ? heatmapArray = heatmap(joinArray) : heatmapArray = joinArray; 
+
+    let returnArray = heatmapArray;
     return returnArray;
 }
