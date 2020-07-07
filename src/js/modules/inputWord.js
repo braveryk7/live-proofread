@@ -34,16 +34,6 @@ export function inputWord(inputWordResult) {
     //多次元配列の結合
     let joinArray = readingPointArray.map((line) => Array.isArray(line) ? line.join('') : line);
 
-    // // ヒートマップ
-    // const heatmapCheck = document.getElementById('heatmap').checked === true;
-    // let heatmapArray = '';
-    // heatmapCheck ? heatmapArray = heatmap(joinArray) : heatmapArray = joinArray; 
-
-    // //低可読性漢字の指摘
-    // const kanjiCheck = document.getElementById('kanjiCheckBox').checked === true;
-    // let kanjiArray = '';
-    // kanjiCheck ? kanjiArray = kanji(heatmapArray) : kanjiArray = heatmapArray;
-
     //低可読性漢字の指摘
     const kanjiCheck = document.getElementById('kanjiCheckBox').checked === true;
     let kanjiArray = '';
