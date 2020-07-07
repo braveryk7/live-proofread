@@ -72,3 +72,21 @@ document.getElementById('heatmap').addEventListener('click', () => {
     document.getElementById('word_count').textContent = inputWordResult.value.length;
     document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
 });
+
+//低可読性漢字の指摘用イベントハンドラ
+document.getElementById('kanjiCheckBox').addEventListener('click', () =>{
+    document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
+    document.getElementById('word_count').textContent = inputWordResult.value.length;
+    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
+})
+document.getElementById('kanjiValue').addEventListener('keyup', () =>{
+    document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
+    document.getElementById('word_count').textContent = inputWordResult.value.length;
+    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
+})
+
+//低可読性漢字の指摘用チェックボックス制御
+document.getElementById('kanjiCheckBox').addEventListener('input', () => {
+    const kanjiCheck = document.getElementById('kanjiValue');
+    document.getElementById('kanjiCheckBox').checked ? kanjiCheck.disabled = false : kanjiCheck.disabled = true;
+})

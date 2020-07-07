@@ -3,6 +3,7 @@ import { counter } from './counter.js';
 import { characterWidthCheck } from './characterWidthCheck.js';
 import { readingPoint } from './readingPoint.js';
 import { heatmap } from './heatmap.js';
+import { kanji } from './kanji.js';
 
 export function inputWord(inputWordResult) {
     /*
@@ -33,10 +34,15 @@ export function inputWord(inputWordResult) {
     //多次元配列の結合
     let joinArray = readingPointArray.map((line) => Array.isArray(line) ? line.join('') : line);
 
+    //低可読性漢字の指摘
+    const kanjiCheck = document.getElementById('kanjiCheckBox').checked === true;
+    let kanjiArray = '';
+    kanjiCheck ? kanjiArray = kanji(joinArray) : kanjiArray = joinArray;
+
     // ヒートマップ
     const heatmapCheck = document.getElementById('heatmap').checked === true;
     let heatmapArray = '';
-    heatmapCheck ? heatmapArray = heatmap(joinArray) : heatmapArray = joinArray; 
+    heatmapCheck ? heatmapArray = heatmap(kanjiArray) : heatmapArray = kanjiArray; 
 
     let returnArray = heatmapArray;
     return returnArray;
