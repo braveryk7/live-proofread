@@ -1,8 +1,11 @@
 import { h } from './h.js';
 
 export function kanji(arr) {
-    if(document.getElementById('kanjiValue').value !== '') {
-        const checkReg = new RegExp(`(${h(document.getElementById('kanjiValue').value.replace(',', '|').replace(/\s+/g, ''))})`);
+    const inputReg = document.getElementById('kanjiValue').value;
+
+    if(inputReg !== '') {
+        const inputRegCheck = inputReg.slice(-1) === ',' ? inputReg.slice(0, -1) : inputReg;
+        const checkReg = new RegExp(`(${h(inputRegCheck.replace(/,/g, '|'))})`);
         const htmlTagReg = /(<[^>]+>)/;
 
         const kanjiArray = arr.map((line) => {
