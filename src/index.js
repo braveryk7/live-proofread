@@ -24,6 +24,11 @@ document.getElementById('copy-btn').addEventListener('click', {
     各フォームのclick/inputのイベントハンドラでview-areaの更新
 */
 
+//文字数に空白や改行を含めるかチェックボックスの制御
+document.getElementById('blankCheckBox').addEventListener('input', () => {
+    formEvent(inputWordResult)
+});
+
 //読点のチェックボックス・テキストエリアをイベントハンドラ
 document.getElementById('reading_point_checkbox').addEventListener('input', () => {
     formEvent(inputWordResult)
