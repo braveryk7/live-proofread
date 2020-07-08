@@ -1,12 +1,10 @@
 import './_scss/style.scss';
 import { inputWord } from './js/modules/inputWord.js';
 import { copyToClipboard } from './js/modules/copyToClipboard.js';
-import { readingPointCheck } from './js/modules/readingPointCheck.js';
 import { kanjiRate } from './js/modules/kanjiRate.js';
+import { checkboxToggle } from './js/modules/checkboxToggle.js'
 
 const inputWordResult = document.forms.input_word.input_word_result;
-const readingPointCheckboxStatus = document.forms.reading_point_form.reading_point_checkbox;
-const readingPointNumberResult = document.forms.reading_point_form.reading_point_number;
 
 // function inputWordTry() {
     inputWordResult.addEventListener('input', () => {
@@ -41,13 +39,10 @@ document.getElementById('reading_point_number').addEventListener('input', () => 
     document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
 });
 
-//読点の処理
-document.getElementById('reading_point_checkbox').addEventListener('input', {
-    readingPointCheckboxStatus: readingPointCheckboxStatus,
-    readingPointNumberResult: readingPointNumberResult,
-    value: inputWordResult,
-    handleEvent: readingPointCheck
-});
+//読点の指摘用チェックボックス制御
+document.getElementById('reading_point_checkbox').addEventListener('input', () => {
+    checkboxToggle('reading_point_checkbox', 'reading_point_number')
+})
 
 // 全角/半角のチェックボックス・テキストエリアをイベントハンドラ
 document.getElementById('character_width_none').addEventListener('click', () => {
@@ -87,6 +82,5 @@ document.getElementById('kanjiValue').addEventListener('keyup', () =>{
 
 //低可読性漢字の指摘用チェックボックス制御
 document.getElementById('kanjiCheckBox').addEventListener('input', () => {
-    const kanjiCheck = document.getElementById('kanjiValue');
-    document.getElementById('kanjiCheckBox').checked ? kanjiCheck.disabled = false : kanjiCheck.disabled = true;
+    checkboxToggle('kanjiCheckBox', 'kanjiValue')
 })
