@@ -5,31 +5,29 @@ import { formEvent } from './js/modules/formEvent.js'
 
 const inputWordResult = document.forms.input_word.input_word_result;
 
-// function inputWordTry() {
-    inputWordResult.addEventListener('input', () => {
-        formEvent(inputWordResult)
-    }, false);
-// }
-// inputWordTry();
-
-//改行コードの処理
-document.getElementById('copy-btn').addEventListener('click', {
-    value: inputWordResult,
-    check: document.forms.input_code,
-    handleEvent: copyToClipboard
-}, false);
-
 /*
     オプションの処理
     各フォームのclick/inputのイベントハンドラでview-areaの更新
 */
+
+//main-areaのイベントハンドラ
+inputWordResult.addEventListener('input', () => {
+    formEvent(inputWordResult)
+}, false);
 
 //文字数に空白や改行を含めるかチェックボックスの制御
 document.getElementById('blankCheckBox').addEventListener('input', () => {
     formEvent(inputWordResult)
 });
 
-//読点のチェックボックス・テキストエリアをイベントハンドラ
+//改行コードのラジオボタン用イベントハンドラ
+document.getElementById('copy-btn').addEventListener('click', {
+    value: inputWordResult,
+    check: document.forms.input_code,
+    handleEvent: copyToClipboard
+}, false);
+
+//読点のチェックボックス・テキストエリア用イベントハンドラ
 document.getElementById('reading_point_checkbox').addEventListener('input', () => {
     formEvent(inputWordResult)
 });
@@ -42,7 +40,7 @@ document.getElementById('reading_point_checkbox').addEventListener('input', () =
     checkboxToggle('reading_point_checkbox', 'reading_point_number')
 })
 
-// 全角/半角のチェックボックス・テキストエリアをイベントハンドラ
+// 全角/半角のチェックボックス・テキストエリア用イベントハンドラ
 document.getElementById('character_width_none').addEventListener('click', () => {
     formEvent(inputWordResult)
 });
@@ -53,7 +51,7 @@ document.getElementById('character_width_full').addEventListener('click', () => 
     formEvent(inputWordResult)
 });
 
-// ヒートマップのイベントハンドラ
+// ヒートマップ用イベントハンドラ
 document.getElementById('heatmap').addEventListener('click', () => {
     formEvent(inputWordResult)
 });
