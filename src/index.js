@@ -1,16 +1,13 @@
 import './_scss/style.scss';
-import { inputWord } from './js/modules/inputWord.js';
 import { copyToClipboard } from './js/modules/copyToClipboard.js';
-import { kanjiRate } from './js/modules/kanjiRate.js';
 import { checkboxToggle } from './js/modules/checkboxToggle.js'
+import { formEvent } from './js/modules/formEvent.js'
 
 const inputWordResult = document.forms.input_word.input_word_result;
 
 // function inputWordTry() {
     inputWordResult.addEventListener('input', () => {
-        document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
-        document.getElementById('word_count').textContent = inputWordResult.value.length;
-        document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
+        formEvent(inputWordResult)
     }, false);
 // }
 // inputWordTry();
@@ -29,14 +26,10 @@ document.getElementById('copy-btn').addEventListener('click', {
 
 //読点のチェックボックス・テキストエリアをイベントハンドラ
 document.getElementById('reading_point_checkbox').addEventListener('input', () => {
-    document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
-    document.getElementById('word_count').textContent = inputWordResult.value.length;
-    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
+    formEvent(inputWordResult)
 });
 document.getElementById('reading_point_number').addEventListener('input', () => {
-    document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
-    document.getElementById('word_count').textContent = inputWordResult.value.length;
-    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
+    formEvent(inputWordResult)
 });
 
 //読点の指摘用チェックボックス制御
@@ -46,38 +39,26 @@ document.getElementById('reading_point_checkbox').addEventListener('input', () =
 
 // 全角/半角のチェックボックス・テキストエリアをイベントハンドラ
 document.getElementById('character_width_none').addEventListener('click', () => {
-    document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
-    document.getElementById('word_count').textContent = inputWordResult.value.length;
-    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
+    formEvent(inputWordResult)
 });
 document.getElementById('character_width_half').addEventListener('click', () => {
-    document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
-    document.getElementById('word_count').textContent = inputWordResult.value.length;
-    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
+    formEvent(inputWordResult)
 });
 document.getElementById('character_width_full').addEventListener('click', () => {
-    document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
-    document.getElementById('word_count').textContent = inputWordResult.value.length;
-    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
+    formEvent(inputWordResult)
 });
 
 // ヒートマップのイベントハンドラ
 document.getElementById('heatmap').addEventListener('click', () => {
-    document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
-    document.getElementById('word_count').textContent = inputWordResult.value.length;
-    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
+    formEvent(inputWordResult)
 });
 
 //低可読性漢字の指摘用イベントハンドラ
 document.getElementById('kanjiCheckBox').addEventListener('click', () =>{
-    document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
-    document.getElementById('word_count').textContent = inputWordResult.value.length;
-    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
+    formEvent(inputWordResult)
 })
 document.getElementById('kanjiValue').addEventListener('keyup', () =>{
-    document.getElementById('view_word').innerHTML = inputWord(inputWordResult).join('<br />');
-    document.getElementById('word_count').textContent = inputWordResult.value.length;
-    document.getElementById('kanji_rate').textContent = kanjiRate(inputWordResult.value);
+    formEvent(inputWordResult)
 })
 
 //低可読性漢字の指摘用チェックボックス制御
