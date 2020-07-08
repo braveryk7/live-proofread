@@ -31,10 +31,10 @@
 ----もしやれたら----
 バックエンドAPIと連携して機械学習を用いたAI指摘（めんどくさい）</textarea>
             </form>
-            <div>
-                <p>文字数カウント：<span id="word_count">0</span>文字（最大5万文字まで）</p>
-                <p>漢字使用率：<span id="kanji_rate">0</span>％</p>
-                <label><input type="checkbox" id="blankCheckBox">改行・スペースを文字数にカウントしない</label>
+            <div class="input-area__counter">
+                <p>総文字数：<span class="input-area__counter--number"><span id="word_count">0</span>文字</span></p>
+                <p>漢字使用率：<span class="input-area__counter--number"><span id="kanji_rate">0.0</span>％</span></p>
+                <label class="input-area__counter--checkbox"><input type="checkbox" id="blankCheckBox">改行・スペースを文字数にカウントしない</label>
             </div>
         </section>
         <section id="view-area" class="view-area">
