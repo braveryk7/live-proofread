@@ -3,6 +3,7 @@ import { inputWord } from './js/modules/inputWord.js';
 import { copyToClipboard } from './js/modules/copyToClipboard.js';
 import { readingPointCheck } from './js/modules/readingPointCheck.js';
 import { kanjiRate } from './js/modules/kanjiRate.js';
+import { checkboxToggle } from './js/modules/checkboxToggle.js'
 
 const inputWordResult = document.forms.input_word.input_word_result;
 const readingPointCheckboxStatus = document.forms.reading_point_form.reading_point_checkbox;
@@ -87,6 +88,5 @@ document.getElementById('kanjiValue').addEventListener('keyup', () =>{
 
 //低可読性漢字の指摘用チェックボックス制御
 document.getElementById('kanjiCheckBox').addEventListener('input', () => {
-    const kanjiCheck = document.getElementById('kanjiValue');
-    document.getElementById('kanjiCheckBox').checked ? kanjiCheck.disabled = false : kanjiCheck.disabled = true;
+    checkboxToggle('kanjiCheckBox', 'kanjiValue')
 })
