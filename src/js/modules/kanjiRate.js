@@ -3,7 +3,7 @@ export function kanjiRate(str) {
     let total = 0;
     let kanji = 0;
 
-    const strChara = Array.from(str).map((chara) => {
+    const strChara = Array.from(str.replace(/\s+/g, '')).map((chara) => {
         if(kanjiCheckReg.test(chara)) {
             total++;
             kanji++;
