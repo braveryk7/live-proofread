@@ -67,20 +67,30 @@
 }
 
 .copy-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 600px;
+    margin: 15px auto;
 
     &__input-code {
+        display: flex;
         flex-direction: column;
         margin-top: 10px;
     }
 
     &__copy-form {
-        align-items: center;
-        margin: 0 auto;
+        margin: auto;
 
         &--btn {
-            padding: 15px 80px;
+            padding: 20px 120px;
             border-radius: 10px;
+            border-color: rgb(95, 158, 160);
+            border-width: 1px;
+            border-image: none;
             cursor: pointer;
+            background: rgb(255, 255, 255);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
         }
     }
 }
