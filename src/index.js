@@ -2,8 +2,17 @@ import './_scss/style.scss';
 import { copyToClipboard } from './js/modules/copyToClipboard.js';
 import { checkboxToggle } from './js/modules/checkboxToggle.js'
 import { formEvent } from './js/modules/formEvent.js'
+import { optionsToggle } from './js/modules/optionsToggle.js';
 
 const inputWordResult = document.forms.input_word.input_word_result;
+
+/*
+    オプションエリアの開閉設定
+    チェックボックスのオンオフをイベントハンドラで管理
+*/
+document.getElementById('openToggle').addEventListener('input', () => {
+    optionsToggle();
+})
 
 /*
     オプションの処理
