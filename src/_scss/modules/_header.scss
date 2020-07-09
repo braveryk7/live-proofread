@@ -13,4 +13,22 @@
     &__sub-title {
         padding-left: 20px;
     }
+
+    &__toggle-open-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 15px 25px;
+        border-radius: 8px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(51, 51, 51);
+
+        &--opend {
+            display: none;
+        }
+    }
+
+    &__toggle-open-checkbox {
+        display: none;
+    }
 }
