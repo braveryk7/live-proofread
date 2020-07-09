@@ -9,6 +9,9 @@
     <header id="header" class="header">
         <h1 class="header__title">LIVE Proofread（β）</h1>
         <p class="header__sub-title">Webライター/編集者用の文章チェック・校正ツール</p>
+        <label id="openToggle" class="header__toggle-open-button">オプション設定
+            <input type="checkbox" id="toggleCheckbox" class="header__toggle-open-checkbox">
+        </label>
     </header>
     <main class="main-area">
         <section id="input-area" class="input-area">
@@ -55,25 +58,26 @@
                 </div>
             </div>
         </section>
-        <section id="options-area" class="options-area">
-            <h2>オプション設定</h2>
-            <div class="reading-point">
-                <form name="reading_point_form">
-                    <label><input type="checkbox" class="reading-point__check" id="reading_point_checkbox" checked>読点（、）の数を<input type="number" class="reading-point__number" id="reading_point_number" min="0" max="99" value="2">個まで許容する</label>
-                </form>
-                <form name="character_width_form">
-                    <label><input type="radio" name="character_width" id="character_width_none" value="0" checked>全半角の指定をしない</label>
-                    <label><input type="radio" name="character_width" id="character_width_half" value="1">英数字を半角で統一する</label>
-                    <label><input type="radio" name="character_width" id="character_width_full" value="2">英数字を全角で統一する</label>
-                </form>
-                <form name="heatmap">
-                    <label><input type="checkbox" class="heatmap" id="heatmap">漢字ヒートマップを使用する</label>
-                </form>
-                <label><input type="checkbox" class="kanji-check-box" id="kanjiCheckBox">低可読性漢字の指摘を有効にする（カンマ区切りで指定）</label>
-                <label><input type="text" class="kanji-value" id="kanjiValue" disabled></label>
-            </div>
-        </section>
     </main>
+    <aside id="options-area" class="options-area">
+        <h2 class="options-area__title">オプション設定</h2>
+        <label class="options-area__close-button" for="toggleCheckbox">×</label>
+        <div id="readingPointArea" class="reading-point">
+            <label><input type="checkbox" class="reading-point__check" id="reading_point_checkbox" checked>読点（、）の数を<input type="number" class="reading-point__number" id="reading_point_number" min="0" max="99" value="2">個まで許容する</label>
+        </div>
+        <div id="characterWidthArea" class="character-width-area">
+            <label><input type="radio" name="character_width" id="character_width_none" value="0" checked>全半角の指定をしない</label>
+            <label><input type="radio" name="character_width" id="character_width_half" value="1">英数字を半角で統一する</label>
+            <label><input type="radio" name="character_width" id="character_width_full" value="2">英数字を全角で統一する</label>
+        </div>
+        <div id="heatmaArea" class="heatmap-area">
+            <label><input type="checkbox" class="heatmap" id="heatmap">漢字ヒートマップを使用する</label>
+        </div>
+        <div id="kanjiArea" class="kanji-area">
+            <label><input type="checkbox" class="kanji-check-box" id="kanjiCheckBox">低可読性漢字の指摘を有効にする（カンマ区切りで指定）</label>
+            <label><input type="text" class="kanji-value" id="kanjiValue" disabled></label>
+        </div>
+    </aside>
     <footer id="footer" class="footer">
         <small>Copyright &copy; 2020 <a href="https://www.braveryk7.com/" target="_blank">L'7 Records</a>.</small>
     </footer>
