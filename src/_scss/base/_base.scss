@@ -3,6 +3,7 @@
 
 body {
     @include containerLayout;
+    min-height: 100vh;
     margin: 0;
     letter-spacing: 1.9;
     overflow-wrap: break-word;

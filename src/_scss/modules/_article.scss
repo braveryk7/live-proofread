@@ -145,7 +145,7 @@
     }
 
     &__close {
-        visibility: hidden;
+        display: none;
         animation: slideOut 0.5s fowrards;
     }
 
