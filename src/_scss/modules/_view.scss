@@ -1,0 +1,38 @@
+.view {
+    width: 95%;
+    height: 450px;
+    max-height: 450px;
+    overflow: auto;
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    word-break: keep-all;
+
+    &__underline {
+        text-decoration: underline wavy rgb(255, 0, 0);
+    }
+
+    &__width {
+        border:2px solid rgba(0, 124, 0, 0.7);
+    }
+
+    &--kanji {
+        background-color: rgba(175, 238, 238, 0.5);
+    }
+
+    &__kanji-check {
+
+        &::before {
+            content: '[';
+            font-weight: bold;
+            padding-left: 5px;
+            color: rgba(255, 128, 0, 1.0);
+        }
+
+        &::after {
+            content: ']';
+            font-weight: bold;
+            padding-right: 5px;
+            color: rgba(255, 128, 0, 1.0);
+        }
+    }
+}
