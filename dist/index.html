@@ -13,11 +13,11 @@
             <input type="checkbox" id="toggleCheckbox" class="header__toggle-open-checkbox">
         </label>
     </header>
-    <main class="main-area">
-        <section id="input-area" class="input-area">
+    <main class="main">
+        <section id="input-area" class="input">
             <h2>チェック対象文章</h2>
             <form id="input_word" name="input_word">
-                <textarea class="input-area__input-form" name="input_word_result" id="input_word_result" cols="50" rows="30" maxlength="50000" placeholder="ここにチェック対象の文章をペースト">
+                <textarea class="input__input-form" name="input_word_result" id="input_word_result" cols="50" rows="30" maxlength="50000" placeholder="ここにチェック対象の文章をペースト">
 テスト用文字列。
 これはリリース時に削除します。
 読点の、数が、多いと、指摘されます。改行してなくてもOK。こんな、感じで、指摘、できるよ。未改行ぶっ続けマンでもいけるんだなこれが！
@@ -34,48 +34,48 @@
 ----もしやれたら----
 バックエンドAPIと連携して機械学習を用いたAI指摘（めんどくさい）</textarea>
             </form>
-            <div class="input-area__counter">
-                <p>総文字数：<span class="input-area__counter--number"><span id="word_count">0</span>文字</span></p>
-                <p>漢字使用率：<span class="input-area__counter--number"><span id="kanji_rate">0.0</span>％</span></p>
-                <label class="input-area__counter--checkbox"><input type="checkbox" id="blankCheckBox">改行・スペースを文字数にカウントしない</label>
+            <div class="input__counter">
+                <p>総文字数：<span class="input__counter--number"><span id="word_count">0</span>文字</span></p>
+                <p>漢字使用率：<span class="input__counter--number"><span id="kanji_rate">0.0</span>％</span></p>
+                <label class="input__counter--checkbox"><input type="checkbox" id="blankCheckBox">改行・スペースを文字数にカウントしない</label>
             </div>
         </section>
-        <section id="view-area" class="view-area">
+        <section id="view-area" class="output">
             <h2>校正結果</h2>
-            <div id="view_word" class="view-word" name="view_word">
+            <div id="view_word" class="view" name="view_word">
                 <p>---使い方---</p>
                 <p>左のテキスト入力エリアにチェック対象の文章を入力すると、オプションに応じて自動で校正結果が表示されます。</p>
                 <p>オプションはオプション設定欄からご希望の設定に変更可能です。</p>
             </div>
-            <div class="copy-area">
-                <form id="input_code" name="input_code" class="copy-area__input-code">
+            <div class="copy">
+                <form id="input_code" name="input_code" class="copy__input-code">
                     <label><input type="radio" name="line_feed_code" value="\n" checked>プレーンテキスト</label>
                     <label><input type="radio" name="line_feed_code" value="br">&lt;br /&gt;タグを付与</label>
                     <label><input type="radio" name="line_feed_code" value="p">&lt;p&gt;タグを付与</label>
                 </form>
-                <div id="copy" name="copy" class="copy-area__copy-form">
-                    <button type="button" id="copy-btn" class="copy-area__copy-form--btn">コピーする</button>
+                <div id="copy" name="copy" class="copy__form">
+                    <button type="button" id="copy-btn" class="copy__form--btn">コピーする</button>
                 </div>
             </div>
         </section>
     </main>
-    <aside id="options-area" class="options-area">
-        <h2 class="options-area__title">オプション設定</h2>
-        <label class="options-area__close-button" for="toggleCheckbox">×</label>
-        <div id="readingPointArea" class="reading-point">
-            <label><input type="checkbox" class="reading-point__check" id="reading_point_checkbox" checked>読点（、）の数を<input type="number" class="reading-point__number" id="reading_point_number" min="0" max="99" value="2">個まで許容する</label>
+    <aside id="options" class="options">
+        <h2 class="options__title">オプション設定</h2>
+        <label class="options__close-button" for="toggleCheckbox">×</label>
+        <div id="readingPointArea" class="options__reading-point">
+            <label><input type="checkbox" class="options__reading-point__check" id="reading_point_checkbox" checked>読点（、）の数を<input type="number" class="options__reading-point__number" id="reading_point_number" min="0" max="99" value="2">個まで許容する</label>
         </div>
-        <div id="characterWidthArea" class="character-width-area">
+        <div id="characterWidthArea" class="options__character-width">
             <label><input type="radio" name="character_width" id="character_width_none" value="0" checked>全半角の指定をしない</label>
             <label><input type="radio" name="character_width" id="character_width_half" value="1">英数字を半角で統一する</label>
             <label><input type="radio" name="character_width" id="character_width_full" value="2">英数字を全角で統一する</label>
         </div>
-        <div id="heatmaArea" class="heatmap-area">
-            <label><input type="checkbox" class="heatmap" id="heatmap">漢字ヒートマップを使用する</label>
+        <div id="heatmaArea" class="options__heatmap">
+            <label><input type="checkbox" id="heatmap">漢字ヒートマップを使用する</label>
         </div>
-        <div id="kanjiArea" class="kanji-area">
-            <label><input type="checkbox" class="kanji-check-box" id="kanjiCheckBox" checked>低可読性漢字の指摘を有効にする（カンマ区切りで指定）</label>
-            <label><textarea class="kanji-value" id="kanjiValue" cols="70" rows="5">頂く,出来る</textarea></label>
+        <div id="kanjiArea" class="options__kanji">
+            <label><input type="checkbox" id="kanjiCheckBox" checked>低可読性漢字の指摘を有効にする（カンマ区切りで指定）</label>
+            <label><textarea id="kanjiValue" cols="70" rows="5">頂く,出来る</textarea></label>
         </div>
     </aside>
     <footer id="footer" class="footer">
