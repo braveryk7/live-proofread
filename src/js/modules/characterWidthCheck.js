@@ -19,7 +19,7 @@ export function characterWidthCheck(str) {
         const strSplit = str.split(checkReg);
         let strings = strSplit.map((strProcessing) => {
             if (checkReg.test(strProcessing)) {
-                strProcessing = `<span class="view-word--width" title="${regMessage}に直して下さい">${strProcessing}</span>`;
+                strProcessing = `<span class="view__width" title="${regMessage}に直して下さい">${strProcessing}</span>`;
             }
             return strProcessing;
         });

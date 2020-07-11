@@ -16,7 +16,7 @@ export function kanji(arr) {
             const kanjiCheck = kanjiLine.map((kanjiValue) => {
                 if(Array.isArray(kanjiValue)){
                     const kanjiList = kanjiValue.map((kanjiListValue) => {
-                        return checkReg.test(kanjiListValue) ? `<span class="view-word--kanji-check" title="ひらがなに直して下さい">${kanjiListValue}</span>` : kanjiListValue;
+                        return checkReg.test(kanjiListValue) ? `<span class="view__kanji-check" title="ひらがなに直して下さい">${kanjiListValue}</span>` : kanjiListValue;
                     })
                     return kanjiList.join('');
                 } else {

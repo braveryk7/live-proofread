@@ -10,7 +10,7 @@ export function heatmap(arr) {
         const kanjiCheck = kanjiLine.map((kanjiValue) => {
             if(Array.isArray(kanjiValue)){
                 const kanjiList = kanjiValue.map((kanjiListValue) => {
-                    return checkReg.test(kanjiListValue) ? `<span class="view-word--kanji">${kanjiListValue}</span>` : kanjiListValue;
+                    return checkReg.test(kanjiListValue) ? `<span class="view__kanji">${kanjiListValue}</span>` : kanjiListValue;
                 })
                 return kanjiList.join('');
             } else {
