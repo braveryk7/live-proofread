@@ -1,6 +1,6 @@
+@import '../mixin/_keyframes.scss';
 
-
-.options-area {
+.options {
     display: none;
     visibility: hidden;
     position: fixed;
@@ -41,75 +41,38 @@
         padding: 20px;
         font-size: 200%;
     }
-}
 
-.reading-point {
-
-    &__close {
-        display: none;
+    &__reading-point {
+    
+        &__close {
+            display: none;
+        }
+    
+        &__number {
+            width: 40px;
+        }
     }
 
-    &__number {
-        width: 40px;
-    }
-}
-
-.character-width-area {
-    display: flex;
-    flex-direction: column;
-
-    &__close {
-        display: none;
-    }
-}
-
-.heatmap-area {
-
-    &__close {
-        display: none;
+    &__character-width {
+        display: flex;
+        flex-direction: column;
+    
+        &__close {
+            display: none;
+        }
     }
 
-    &__number {
-        width: 40px;
-    }
-}
-
-.kanji-area {
-
-    &__close {
-        display: none;
+    &__heatmap {
+    
+        &__close {
+            display: none;
+        }
     }
 
-    &__number {
-        width: 40px;
-    }
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        width: 200px;
-    }
-
-    to {
-        opacity: 1;
-        width: 600px;
-    }
-}
-
-@keyframes slideOut {
-    0% {
-        opacity: 1;
-        width: 600px;
-    }
-
-    99% {
-        opacity: 0;
-        width: 200px;
-    }
-
-    100% {
-        visibility: hidden;
-        // display: none;
+    &__kanji {
+    
+        &__close {
+            display: none;
+        }
     }
 }
