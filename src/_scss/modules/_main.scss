@@ -3,7 +3,7 @@
 @import '_output.scss';
 @import '_options.scss';
 
-.main-area {
+.main {
     grid-area: center;
     @include mainLayout;
     background-color: rgb(174, 212, 203);
