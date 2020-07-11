@@ -1,0 +1,10 @@
+@import '../mixin/layout.scss';
+@import '_input.scss';
+@import '_output.scss';
+@import '_options.scss';
+
+.main {
+    grid-area: center;
+    @include mainLayout;
+    background-color: rgb(174, 212, 203);
+}

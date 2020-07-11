@@ -1,0 +1,78 @@
+@import '../mixin/_keyframes.scss';
+
+.options {
+    display: none;
+    visibility: hidden;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    opacity: 0;
+    width: 600px;
+
+    &__open {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        width: 600px;
+        min-height: 100vh;
+        animation: slideIn 0.5s;
+        background-color: rgba(54, 54, 54, 0.7);
+        color: rgb(255, 255, 255);
+
+        & div {
+            border-top: 1px solid rgb(255, 255, 255);
+            padding: 20px 30px;
+        }
+    }
+
+    &__close {
+        display: none;
+        animation: slideOut 0.5s fowrards;
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__close-button {
+        position: absolute;
+        top: -5px;
+        left: 20px;
+        padding: 20px;
+        font-size: 200%;
+    }
+
+    &__reading-point {
+    
+        &__close {
+            display: none;
+        }
+    
+        &__number {
+            width: 40px;
+        }
+    }
+
+    &__character-width {
+        display: flex;
+        flex-direction: column;
+    
+        &__close {
+            display: none;
+        }
+    }
+
+    &__heatmap {
+    
+        &__close {
+            display: none;
+        }
+    }
+
+    &__kanji {
+    
+        &__close {
+            display: none;
+        }
+    }
+}
