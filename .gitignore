@@ -1,5 +1,6 @@
 node_modules
-dist/js
+dist/js/bundle.js
+dist/css/style.css
 #-------------------------------
 #   Created by OS
 #-------------------------------
