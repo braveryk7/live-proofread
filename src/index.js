@@ -3,8 +3,15 @@ import { copyToClipboard } from './js/modules/copyToClipboard.js';
 import { checkboxToggle } from './js/modules/checkboxToggle.js'
 import { formEvent } from './js/modules/formEvent.js'
 import { optionsToggle } from './js/modules/optionsToggle.js';
+import { urlParam } from './js/modules/urlParam.js';
 
 const inputWordResult = document.forms.input_word.input_word_result;
+
+/*
+    URLパラメーターの取得と設定
+    URLパラメーターが存在する場合、オプションを設定する
+*/
+urlParam();
 
 /*
     オプションエリアの開閉設定
