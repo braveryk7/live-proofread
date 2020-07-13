@@ -79,4 +79,11 @@
             display: none;
         }
     }
+
+    &__settings {
+
+        &--url {
+            width: 100%;
+        }
+    }
 }
