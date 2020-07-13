@@ -7,7 +7,6 @@ export function urlParam() {
         const spParameter = parameter.split('=');
         setParam[spParameter[0]] = spParameter[1];
     })
-    console.log(setParam)
 
     //reading_check_point
     if('rpc' in setParam) {
@@ -17,7 +16,6 @@ export function urlParam() {
         } else if(setParam.rpc === '1') {
             document.getElementById('reading_point_checkbox').checked = true;
             document.getElementById('reading_point_number').disabled = false;
-
         }
     }
 
