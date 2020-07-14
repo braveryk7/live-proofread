@@ -1,0 +1,21 @@
+{
+    "extends": "eslint:recommended",
+    "env": {
+        "browser": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2016,
+        "sourceType": "module"
+    },
+    "globals": {
+        "$": false
+    },
+    "rules": {
+        "semi": ["error", "always"],
+        "no-extra-semi": "warn",
+        "no-undef": "warn",
+        "quotes": ["warn", "single"],
+        "indent": ["error", "tab"],
+        "space-before-blocks": ["warn", "always"]
+    }
+}
