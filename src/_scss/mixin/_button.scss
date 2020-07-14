@@ -1,0 +1,21 @@
+@mixin button {
+    padding: 20px 100px;
+    border: solid 1px rgb(95, 158, 160);
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+
+    &:focus {
+        outline: 0;
+    }
+
+    &:hover {
+        opacity: 0.8;
+        border-width: 2px;
+    }
+
+    &:active {
+        box-shadow: none;
+    }
+}
