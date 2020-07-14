@@ -5,6 +5,7 @@ import { formEvent } from './js/modules/formEvent.js'
 import { optionsToggle } from './js/modules/optionsToggle.js';
 import { urlParam } from './js/modules/urlParam.js';
 import { settingsUrl } from './js/modules/settingsUrl.js';
+import { jsonDownload } from './js/modules/jsonDownload.js';
 
 const inputWordResult = document.forms.input_word.input_word_result;
 
@@ -84,6 +85,11 @@ document.getElementById('kanjiValue').addEventListener('keyup', () =>{
 //低可読性漢字の指摘用チェックボックス制御
 document.getElementById('kanjiCheckBox').addEventListener('input', () => {
     checkboxToggle('kanjiCheckBox', 'kanjiValue')
+})
+
+//設定JSONファイルダウンロード用イベントハンドラ
+document.getElementById('downloadBtn').addEventListener('click', () =>{
+    jsonDownload();
 })
 
 settingsUrl();
