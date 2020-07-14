@@ -4,7 +4,6 @@ export function settingsUrl() {
     const url = `${location.protocol}//${location.hostname}/`; 
     
     const dataArray = valueAcquisition();
-    console.log(dataArray)
     
     let returnUrl = `${url}?cw=${dataArray.cw}&`;
     if(dataArray.rpc === 1) returnUrl = `${returnUrl}rpc=${dataArray.rpc}&`;
